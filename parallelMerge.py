@@ -25,7 +25,10 @@ class DataAnalyzer:
         Separate task depends on number of cores
         """
         # leave 1 core for main process will gain max performance
-        n = (cpu_count() - 1) if len(self._data) >= cpu_count() else 1
+        if cpu_count() > 1 and len(self._data) >= cpu_count():
+            n = cpu_count() - 1
+        else:
+            n = 1
         
         pool = Pool(processes=n)
         poolResults = []
