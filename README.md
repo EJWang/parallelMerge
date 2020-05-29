@@ -1,17 +1,19 @@
-Parallel Merge data based on meta data
+Parallel Merge use asynchronous multiprocessing to merge data based on metadata provided.
 
-Usage: python3 parallelMerge.py <metadata json file>
-e.g. python3 parallelMerge.py metadata.cart.2020-05-25.json
+Then generate mRNA Matrix and display count.
 
-Example output result of shell:
+
+
+Example of shell output:
+
 ---------------- Stats ----------------
-Normal Count: 82
-Tumor Count: 780
+Normal Count: 104
+Tumor Count: 828
 ------------------------------------------
 
 Result has been generated to mRNA_Matrix.txt
 
-Process done, it takes: 19.19sec
+Process done, it takes: 19.75sec
 
 
 Please wait, program exiting.......
