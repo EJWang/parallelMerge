@@ -1,12 +1,15 @@
 # paralleMerge
 
-> A tool help to merge RNA data based on metadata JSON
+> A tool help to merge data based on metadata JSON
 
-> calculate the number of normal, tumor and generate the merged RNA Matrix text file
+> Calculate the number of normals and tumors
 
-> put it on your data folder with metadata then run it, no need to decompress
+> Generate the merged RNA Matrix text file
 
 ## Usage
+
+Put it on your folder which contain all data folders and metadata, then:
+
 Usage: python3 parallelMerge.py <metadata JSON>
 
 ## Example of shell output
