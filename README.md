@@ -8,7 +8,7 @@
 
 ## Usage
 
-Put it on your folder which contain all data folders and metadata, then:
+Put it on the folder which contain all data folders and metadata, then:
 
 Usage: python3 parallelMerge.py <metadata JSON>
 
