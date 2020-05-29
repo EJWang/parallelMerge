@@ -1,6 +1,6 @@
 import json, sys, gzip, time, os
 import multiprocessing as mp
-from multiprocessing import Process, Value, cpu_count, Pool, Lock
+from multiprocessing import Pool, cpu_count
 
 
 class DataAnalyzer:
@@ -17,7 +17,6 @@ class DataAnalyzer:
         self._normalSamples = []
         self._tumorSamples = []
         self._outFileName = outFileName
-        
         
     def run(self):
         """Separate task depends on number of cores"""
@@ -77,7 +76,6 @@ class DataAnalyzer:
                     except KeyError:
                         result[name] = [value]
         return result, normalSamples, tumorSamples
-        
     
     def _collectResult(self, poolResults):
         for result in poolResults:
@@ -93,7 +91,6 @@ class DataAnalyzer:
             
             self._normalSamples += normals
             self._tumorSamples += tumors
-            
             
     def _writeResult(self):
         """Writing result to self._outFileName"""
@@ -112,8 +109,7 @@ class DataAnalyzer:
             outFile.write(key + '\t')
             outFile.write('\t'.join(values) + '\n')
         outFile.close()
-        
-        
+         
     def _showStats(self):
         print("\n---------------- Stats ----------------")
         print("Normal Count: " + str(len(self._normalSamples)))
