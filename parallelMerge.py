@@ -1,10 +1,14 @@
+# Author: EJWang
+# Github: https://github.com/EJWang/parallelMerge.git
+# Final version date: May. 29th, 2020
+
 import json, sys, gzip, time, os
 from multiprocessing import Pool, cpu_count
 
 
 class DataAnalyzer:
-    """Parallel processing data and generate RNA Matrix."""
     def __init__(self, path, outFileName):
+        """(DataAnalyzer, str, str) -> None"""
         # metadata
         with open(path, 'r') as jf:
             self._data = json.load(jf)
@@ -18,8 +22,11 @@ class DataAnalyzer:
         self._outFileName = outFileName
         
     def run(self):
-        """Separate task depends on number of cores"""
-        n = cpu_count() if len(self._data) >= cpu_count() else 1
+        """(DataAnalyzer) -> None
+        Separate task depends on number of cores
+        """
+        # leave 1 core for main process will gain max performance
+        n = (cpu_count() - 1) if len(self._data) >= cpu_count() else 1
         
         pool = Pool(processes=n)
         poolResults = []
@@ -44,7 +51,10 @@ class DataAnalyzer:
         self._showStats()
 
     def _getResult(self, data):
-        """(dict of JSON) -> (dict of lst, lst, lst)"""
+        """(DataAnalyzer, dict of JSON) -> (dict of lst, lst, lst)
+        Calculating result from data and return organzied
+        data to let main process collect it.
+        """
         result = {}
         normalSamples = []
         tumorSamples = []
@@ -76,6 +86,11 @@ class DataAnalyzer:
         return result, normalSamples, tumorSamples
     
     def _collectResult(self, poolResults):
+        """(DataAnalyzer, dict of lst -> None)
+        
+        Collecting result from different process and
+        update to the main process's self.results.
+        """
         for result in poolResults:
         # get() return a list of tuple contain result
             valueDict, normals, tumors = result.get()[0]
@@ -91,7 +106,11 @@ class DataAnalyzer:
             self._tumorSamples += tumors
             
     def _writeResult(self):
-        """Writing result to self._outFileName"""
+        """(DataAnalyzer) -> None
+        
+        After collecting result, writing result from self.results
+        to file assigned by self._outFileName.
+        """
         outFile = open(self._outFileName, "w")
         
         # Writing TGCA Normal first, then tumor
