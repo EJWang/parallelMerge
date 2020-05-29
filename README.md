@@ -1,55 +1,29 @@
 # paralleMerge
 
-> A tool help to merge mRNA data based on metadata JSON
+> A tool help to merge RNA data based on metadata JSON
 
-> calculate the number of normal, tumor
+> calculate the number of normal, tumor and generate the merged RNA Matrix text file
 
-> generate the mRNA Matrix
-
-## Example (Optional)
-
-```javascript
-// code away!
-
-let generateProject = project => {
-  let code = [];
-  for (let js = 0; js < project.length; js++) {
-    code.push(js);
-  }
-};
-```
-
----
-
-### Setup
-
-- If you want more syntax highlighting, format your code like this:
-
-> update and install this package first
-
-```shell
-$ brew update
-$ brew install fvcproductions
-```
-
-> now install npm and bower packages
-
-```shell
-$ npm install
-$ bower install
-```
-
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
-
----
-
+> put it on your data folder with metadata then run it, no need to decompress
 
 ## Usage
 Usage: python3 parallelMerge.py <metadata JSON>
 
+## Example of shell output
+
+```shell
+Current: c4a29253-97ba-40d8-b920-1b90871d94b3/49025bb6-3da7-4e27-b8a3-c3815ede80eb.FPKM.txt.gz......
+Current: 4303d5d3-3b74-47f9-8b39-6bc1493c2661/571143cf-c9f4-4490-8ff7-084ab5b297d3.FPKM.txt.gz......
+
+---------------- Stats ----------------
+Normal Count: 104
+Tumor Count: 828
+------------------------------------------
+
+Result has been generated to mRNA_Matrix.txt
+
+Process done, it takes: 19.75sec
 
 
-## Contributing
-
-> To get started...
-
+Please wait, program exiting.......
+```
