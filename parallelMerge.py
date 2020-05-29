@@ -42,7 +42,6 @@ class DataAnalyzer:
         self._collectResult(poolResults)
         self._writeResult()
         self._showStats()
-    
 
     def _getResult(self, data):
         """(dict of JSON) -> (dict of lst, lst, lst)"""
