@@ -115,7 +115,7 @@ class DataAnalyzer:
         print("Normal Count: " + str(len(self._normalSamples)))
         print("Tumor Count: " + str(len(self._tumorSamples)))
         print("------------------------------------------\n")
-        print("Result has been generated to RNA_Matrix.txt")
+        print("Result has been generated to " + self.outFileName)
         print("\nProcess done, it takes: " +
               str(round(time.time() - self._startTime, 2)) + "sec\n\n"
               )
