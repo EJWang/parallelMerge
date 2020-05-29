@@ -1,4 +1,4 @@
-# paralleMerge
+# parallelMerge
 
 > A tool help to merge data based on metadata JSON
 
