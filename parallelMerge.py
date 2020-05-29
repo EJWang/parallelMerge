@@ -1,7 +1,6 @@
 # Author: EJWang
 # Github: https://github.com/EJWang/parallelMerge.git
 # Final version date: May. 29th, 2020
-
 import json, sys, gzip, time, os
 from multiprocessing import Pool, cpu_count
 
