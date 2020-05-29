@@ -1,10 +1,9 @@
 import json, sys, gzip, time, os
-import multiprocessing as mp
 from multiprocessing import Pool, cpu_count
 
 
 class DataAnalyzer:
-    """Parallel processing data and generate mRNA Matrix."""
+    """Parallel processing data and generate RNA Matrix."""
     def __init__(self, path, outFileName):
         # metadata
         with open(path, 'r') as jf:
@@ -123,5 +122,5 @@ class DataAnalyzer:
         
     
 if __name__ == '__main__':
-    analyzer = DataAnalyzer(sys.argv[1], "mRNA_Matrix.txt")
+    analyzer = DataAnalyzer(sys.argv[1], "RNA_Matrix.txt")
     analyzer.run()
